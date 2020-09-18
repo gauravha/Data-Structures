@@ -45,7 +45,7 @@ public class LinkedList<T> {
         size++;
     }
 
-    int[] toArray(){
+    public int[] toArray(){
         ListNode temp = head;
         int[] output = new int[size];
         int i = 0;
@@ -100,7 +100,7 @@ public class LinkedList<T> {
     }
 
 
-    public  void insertNode(ListNode headr, int valueInsert, int location){
+    public  void insertNode(ListNode headr, T valueInsert, int location){
         headr = this.head;
         ListNode temp = this.head;
         ListNode node = new ListNode(valueInsert);

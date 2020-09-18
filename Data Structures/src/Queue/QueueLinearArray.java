@@ -65,7 +65,7 @@ public class QueueLinearArray<T>{
         }
     }
 
-    private boolean isFull() {
+    public boolean isFull() {
         if(sizeofQueue == topOfQueue+1){
             return true ;
         }
@@ -77,6 +77,14 @@ public class QueueLinearArray<T>{
     public void deleteQueue(){
 
         arrayForQueue = null;
+    }
+    public T[] toQuArray(){
+        T[] outputArray = (T[]) new Object[sizeofQueue];
+        for(int i = 0; i<sizeofQueue; i++){
+            outputArray[i] = arrayForQueue[i];
+
+        }
+        return outputArray;
     }
 
 
