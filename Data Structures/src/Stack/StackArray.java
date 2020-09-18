@@ -9,7 +9,7 @@ public class StackArray<T> {
     public StackArray(int sizer){
         this.size = sizer;
         this.topOfStack = -1;
-         this.arrayForStack = (T[]) new Object[sizer];
+        this.arrayForStack = (T[]) new Object[sizer];
 
     }
 

@@ -25,6 +25,7 @@ public class QueueLinearArray<T>{
             }
             arrayForQueue[topOfQueue+1]=valuee;
             topOfQueue++;
+
         }
     }
 
@@ -39,11 +40,12 @@ public class QueueLinearArray<T>{
                 beginningOfQueue =-1;
                 topOfQueue = -1;
             }
+
         }
 
     }
 
-    public void peek(){
+    public double peek(){
         if(isEmpty()){
             System.out.println("Empty Queue");
         }
@@ -51,9 +53,10 @@ public class QueueLinearArray<T>{
 
             System.out.println("value is "+arrayForQueue[beginningOfQueue]);
         }
+        return 0;
     }
 
-    private boolean isEmpty() {
+    public boolean isEmpty() {
         if(topOfQueue == -1 && beginningOfQueue == -1){
             return true;
         }
@@ -72,6 +75,7 @@ public class QueueLinearArray<T>{
     }
 
     public void deleteQueue(){
+
         arrayForQueue = null;
     }
 
