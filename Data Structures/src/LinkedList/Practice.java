@@ -21,6 +21,14 @@ public class Practice {
             list1.insertNode(head1,142,5);
             list1.insertNode(head1,1142,7);
             list1.insertNode(head1,89,9);
+            System.out.println(Arrays.toString(list1.toArray()));
+
+            list1.deleteNode(head1,0);
+            list1.deleteNode(head1,0);
+            System.out.println(Arrays.toString(list1.toArray()));
+
+            list1.deleteNode(head1,1);
+//            list1.deleteNode(head1,);
 
 
 
