@@ -1,11 +1,7 @@
 package BInaryTree;
 
-import LinkedList.ListNode;
+
 import Queue.QueueLinearLinkedList;
-import com.sun.source.tree.BinaryTree;
-
-import javax.swing.tree.TreeNode;
-
 public class BinaryTreeLinkedList {
     BinaryTreeNode root;
 
@@ -45,7 +41,6 @@ public class BinaryTreeLinkedList {
     }
 
     public static void levelOrderTraversals(BinaryTreeNode root){
-
         if (root == null){
             System.out.println("NO root");
         }
@@ -53,7 +48,6 @@ public class BinaryTreeLinkedList {
             QueueLinearLinkedList queueLinearLinkedList = new QueueLinearLinkedList<BinaryTreeNode>();
             queueLinearLinkedList.enqueue(root);
             while(!queueLinearLinkedList.isEmpty()){
-
                 if(root.left!= null){
                     queueLinearLinkedList.enqueue(root.left);
                 }
@@ -69,6 +63,34 @@ public class BinaryTreeLinkedList {
         }
     }
 
+    public static void searchValue(BinaryTreeNode root, int v){
+        if(root == null){
+            System.out.println("Error");
+        }
+        else{
+            QueueLinearLinkedList queueLinearLinkedList = new QueueLinearLinkedList<BinaryTreeNode>();
+            queueLinearLinkedList.enqueue(root);
+            while(!queueLinearLinkedList.isEmpty()){
+                if(root.left!= null){
+                    queueLinearLinkedList.enqueue(root.left);
+                }
+                if(root.right!= null){
+                    queueLinearLinkedList.enqueue(root.right);
+                }
+                BinaryTreeNode nodee = (BinaryTreeNode) queueLinearLinkedList.get(0);
+                int val = (int) nodee.val;
+                if (v == val){
+                    System.out.println("YEah FOund");
+                    return;
+                }
+                queueLinearLinkedList.dequeue();
+                root = (BinaryTreeNode) queueLinearLinkedList.get(0);
+                }
+            System.out.println("NOt found");
+
+        }
+    }
+
 
 
     public static void main(String[] args) {
@@ -80,9 +102,8 @@ public class BinaryTreeLinkedList {
         tree.root.left.left = new BinaryTreeNode(1);
         tree.root.left.right = new BinaryTreeNode(3);
         tree.root.right.left = new BinaryTreeNode(6);
-
         tree.root.right.right = new BinaryTreeNode(7);
-        levelOrderTraversals(tree.root);
+        searchValue(tree.root,52);
 
     }
 
