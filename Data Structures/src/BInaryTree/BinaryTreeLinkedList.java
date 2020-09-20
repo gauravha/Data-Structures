@@ -2,7 +2,7 @@ package BInaryTree;
 
 
 import Queue.QueueLinearLinkedList;
-public class BinaryTreeLinkedList {
+public class BinaryTreeLinkedList<T> {
     BinaryTreeNode root;
 
     public  void preOrderTraversals(BinaryTreeNode root){
@@ -91,19 +91,59 @@ public class BinaryTreeLinkedList {
         }
     }
 
+    public  void insertTreeNode(int Vale){
+        //BinaryTreeLinkedList binaryTreeLinkedList = new BinaryTreeLinkedList();
+        BinaryTreeNode newnode = new BinaryTreeNode(Vale);
+        if(root == null){
+            root = newnode;
+
+        }
+        else{
+            QueueLinearLinkedList queueLinearLinkedList = new QueueLinearLinkedList<BinaryTreeNode>();
+            root = this.root;
+            queueLinearLinkedList.enqueue(root);
+            while(!queueLinearLinkedList.isEmpty()){
+                if(root.left!= null){
+                    queueLinearLinkedList.enqueue(root.left);
+                }
+                if(root.right!= null){
+                    queueLinearLinkedList.enqueue(root.right);
+                }
+                if(root.left==null && root.right==null){
+                    root.left = newnode;
+                    return;
+                }
+                if(root.left != null && root.right == null){
+                    root.right = newnode;
+                    return;
+                }
+                queueLinearLinkedList.dequeue();
+                root = (BinaryTreeNode) queueLinearLinkedList.get(0);
+            }
+
+        }
+    }
+
+    public void deleteNode(){
+
+    }
+
 
 
     public static void main(String[] args) {
 
         BinaryTreeLinkedList tree = new BinaryTreeLinkedList();
-        tree.root = new BinaryTreeNode(4);
-        tree.root.left = new BinaryTreeNode(2);
-        tree.root.right = new BinaryTreeNode(5);
-        tree.root.left.left = new BinaryTreeNode(1);
-        tree.root.left.right = new BinaryTreeNode(3);
-        tree.root.right.left = new BinaryTreeNode(6);
-        tree.root.right.right = new BinaryTreeNode(7);
-        searchValue(tree.root,52);
+//        tree.root = new BinaryTreeNode(4);
+//        tree.root.left = new BinaryTreeNode(2);
+//        tree.root.right = new BinaryTreeNode(5);
+//        tree.root.left.left = new BinaryTreeNode(1);
+//        tree.root.left.right = new BinaryTreeNode(3);
+//        tree.root.right.left = new BinaryTreeNode(6);
+//        tree.root.right.right = new BinaryTreeNode(7);
+//        tree.insertTreeNode(555);
+        tree.insertTreeNode(23);
+
+        searchValue(tree.root,23);
 
     }
 

@@ -10,6 +10,8 @@ public class BinaryTreeNode<T> {
     public BinaryTreeNode(T val) {
 
         this.val = val;
+        this.left = null;
+        this.right = null;
     }
 
 
