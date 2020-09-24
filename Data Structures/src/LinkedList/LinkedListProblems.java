@@ -130,6 +130,8 @@ public class LinkedListProblems {
         forexample.add(1);
 
 
+
+
         int atfk[] = new int[]{1};
         System.out.println(palindrome(atfk));
 
